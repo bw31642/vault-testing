@@ -1,0 +1,36 @@
+default:
+  image: ubuntu:20.04
+
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: never
+    - when: always
+
+
+variables:
+  VAULT_ADDR: https://vault.oss.cloudp.libgbl.net
+  VAULT_CACERT: ./certs/vault_ca.crt
+  VAULT_ROLE: group_cloudp
+
+
+before_script:
+  - |
+    echo "Performing pre-req setup"
+    echo "...installing vault binary"
+    sudo apt update && sudo apt install gpg
+    wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+         | sudo tee /etc/apt/sources.list.d/hashicorp.list
+    sudo apt update
+    sudo apt install vault
+
+
+stages:
+  - demo
+
+vault_demo:
+  stage: demo
+  script:
+    - vault version
