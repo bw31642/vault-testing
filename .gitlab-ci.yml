@@ -13,7 +13,7 @@ variables:
   VAULT_ADDR: https://vault.oss.cloudp.libgbl.net
   VAULT_CACERT: ./certs/vault_ca.crt
   VAULT_ROLE: group_cloudp
-  VAULT_SECRET_PATH: /secret/data/cloudp/init
+  VAULT_SECRET_PATH: /secret/cloudp/init
   VAULT_SECRET_VALUE: my_secret
 
 
