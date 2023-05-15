@@ -10,6 +10,10 @@ jobs:
       id-token: write
       contents: read
     steps:
+    - name: pre-reqs
+      run: |
+        sudo apt update
+        sudo apt install -y npm
     - name: Install OIDC Client from Core Package
       run: npm install @actions/core@1.6.0 @actions/http-client
     - name: Get Id Token
