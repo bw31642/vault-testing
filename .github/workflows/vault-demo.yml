@@ -36,10 +36,11 @@ jobs:
         with: 
           method: jwt
           path: jwt_github
-          url: ${{ secrets.VAULT_ADDR }}
+          url: "https://vault.oss.cloudp.libgbl.net"
           role: group_cloudp
           caCertificate: ${{ secrets.VAULT_CA_CERT }}
-          secrets: ${{ secrets.VAULT_SECRET_PATH }} ${{ secrets.VAULT_SECRET_KEY }} | MY_SECRET
+          secrets: |
+            /secrets/data/cloudp/init my_secret | MY_SECRET
 
       # - name: Retrieve Secrets
       #   id: secretdata
