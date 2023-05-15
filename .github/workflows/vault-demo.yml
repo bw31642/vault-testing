@@ -10,11 +10,12 @@ jobs:
       id-token: write
       contents: read
     steps:
+      - uses: actions/checkout@v2
       - name: Retrieve secret from Vault
         uses: hashicorp/vault-action@v2.4.0
         with:
           method: jwt
-          caCertificate: ${{ secrets.VAULT_CA_CERT }}
+          caCertificate: ${{secrets.VAULT_CA}}
           url: "https://vault.oss.cloudp.libgbl.net"
           role: group_cloudp
           secrets: |
