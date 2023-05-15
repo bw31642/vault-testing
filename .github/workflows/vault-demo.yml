@@ -40,7 +40,7 @@ jobs:
           role: group_cloudp
           caCertificate: ${{ secrets.VAULT_CA_CERT }}
           secrets: |
-            /secrets/data/cloudp/init my_secret | MY_SECRET
+            /secrets/cloudp/init my_secret | MY_SECRET
 
 
       # - name: Retrieve Secrets
