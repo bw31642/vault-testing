@@ -26,6 +26,8 @@ jobs:
          echo ${MY_SECRET} > myfile.txt
          ls -al
          cat myfile.txt
+         cp myfile.txt b
+         cat b
 
     # - uses: actions/checkout@v2
     # - name: pre-reqs
