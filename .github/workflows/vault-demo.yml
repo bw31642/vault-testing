@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: Retrieve secret from Vault
         uses: hashicorp/vault-action@v2.4.0
-          with:
-            method: jwt
-            url: "https://vault.oss.cloudp.libgbl.net"
-            role: group_cloudp
-            secrets: /secrets/cloudp/init
+        with:
+          method: jwt
+          url: "https://vault.oss.cloudp.libgbl.net"
+          role: group_cloudp
+          secrets: /secrets/cloudp/init
 
 
     # - uses: actions/checkout@v2
