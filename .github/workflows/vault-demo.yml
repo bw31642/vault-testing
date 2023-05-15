@@ -24,6 +24,7 @@ jobs:
       - run: |
          env | sort
          echo ${MY_SECRET} > myfile.txt
+         ls -al
          cat myfile.txt
 
     # - uses: actions/checkout@v2
