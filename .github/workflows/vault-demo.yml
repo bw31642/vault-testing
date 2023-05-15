@@ -30,7 +30,7 @@ jobs:
             rm ./token.json
         env:
           VAULT_URL: "https://vault.oss.cloudp.libgbl.net"
-          VAULT_AUTH_PATH: github
+          VAULT_AUTH_PATH: jwt_github
           VAULT_ROLE: "group_cloudp"
 
 
