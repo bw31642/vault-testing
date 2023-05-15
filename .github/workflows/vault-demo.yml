@@ -21,7 +21,8 @@ jobs:
           role: group_cloudp
           secrets: |
             /secrets/data/cloudp/init my_secret | MY_SECRET
-
+      - run: |
+         echo ${MY_SECRET}
 
     # - uses: actions/checkout@v2
     # - name: pre-reqs
