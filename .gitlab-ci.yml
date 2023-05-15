@@ -38,7 +38,7 @@ vault_demo:
     - |
       vault version
       echo "Getting vault token(vault auth using JWT token)"
-      export VAULT_TOKEN="$(vault write -field=token auth/jwt/login role=${VAULT_ROLE} jwt=${CI_JOB_JWT})"
+      export VAULT_TOKEN="$(vault write -field=token auth/jwt_gitlab/login role=${VAULT_ROLE} jwt=${CI_JOB_JWT})"
       [ $? -eq 0 ] && echo "Vault token fetch: SUCCESS!"
       echo "Fetching secret from vault path: ${VAULT_SECRET_PATH}"
       export SECRET="$(vault kv get -field=${VAULT_SECRET_VALUE} ${VAULT_SECRET_PATH})"
