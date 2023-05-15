@@ -48,3 +48,4 @@ jobs:
     #      echo "Fetching secret from vault path: ${VAULT_SECRET_PATH}"
     #      export SECRET="$(vault kv get -field=${VAULT_SECRET_VALUE} ${VAULT_SECRET_PATH})"
     #      echo "Got Secret: ${SECRET}"
+
