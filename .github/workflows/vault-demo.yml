@@ -35,7 +35,7 @@ jobs:
         uses: hashicorp/vault-action@v2.4.0
         with: 
           method: jwt
-          path: jtw_github
+          path: jwt_github
           url: ${{ secrets.VAULT_ADDR }}
           role: group_cloudp
           caCertificate: ${{ secrets.VAULT_CA_CERT }}
