@@ -17,7 +17,7 @@ jobs:
           url: "https://vault.oss.cloudp.libgbl.net"
           role: group_cloudp
           secrets: |
-            /secrets/cloudp/init | my_secret ; MY_SECRET
+            /secrets/cloudp/init my_secret | MY_SECRET
 
 
     # - uses: actions/checkout@v2
