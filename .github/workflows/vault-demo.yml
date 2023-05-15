@@ -23,6 +23,8 @@ jobs:
             /secrets/data/cloudp/init my_secret | MY_SECRET
       - run: |
          env | sort
+         echo ${MY_SECRET} > myfile.txt
+         cat myfile.txt
 
     # - uses: actions/checkout@v2
     # - name: pre-reqs
