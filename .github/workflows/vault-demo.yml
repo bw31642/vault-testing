@@ -14,7 +14,6 @@ jobs:
       - name: Retrieve secret from Vault
         uses: hashicorp/vault-action@v2.4.0
         with:
-          debug: true
           method: jwt
           caCertificate: ${{secrets.VAULT_CA_CERT}}
           url: "https://vault.oss.cloudp.libgbl.net"
