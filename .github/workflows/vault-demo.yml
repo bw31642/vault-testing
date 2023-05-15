@@ -9,15 +9,14 @@ jobs:
     permissions:
       id-token: write
       contents: read
-
     steps:
-        - name: Retrieve secret from Vault
-          uses: hashicorp/vault-action@v2.4.0
-            with:
-              method: jwt
-              url: https://vault.oss.cloudp.libgbl.net
-              role: group_cloudp
-              secrets: /secrets/cloudp/init
+      - name: Retrieve secret from Vault
+        uses: hashicorp/vault-action@v2.4.0
+          with:
+            method: jwt
+            url: "https://vault.oss.cloudp.libgbl.net"
+            role: group_cloudp
+            secrets: /secrets/cloudp/init
 
 
     # - uses: actions/checkout@v2
