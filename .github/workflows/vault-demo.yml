@@ -33,6 +33,9 @@ jobs:
         jwtd $IDTOKEN
         echo "::set-output name=idToken::${IDTOKEN}"
       id: tokenid
+
+
+
     # steps:
     #   - uses: actions/checkout@v2
     #   - name: Retrieve secret from Vault
