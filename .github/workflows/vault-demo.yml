@@ -36,7 +36,7 @@ jobs:
         with: 
           method: jwt
           url: ${{ secrets.VAULT_ADDR }}
-          role: ${{ secrets.VAULT_ROLE }}
+          role: group_cloudp
           caCertificate: ${{ secrets.VAULT_CA_CERT }}
           secrets: ${{ secrets.VAULT_SECRET_PATH }} ${{ secrets.VAULT_SECRET_KEY }} | MY_SECRET
 
