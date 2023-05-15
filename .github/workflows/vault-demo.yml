@@ -15,7 +15,6 @@ jobs:
         uses: hashicorp/vault-action@v2.4.0
         with:
           method: jwt
-          path: "githubjwt/"
           caCertificate: ${{secrets.VAULT_CA_CERT}}
           url: "https://vault.oss.cloudp.libgbl.net"
           role: group_cloudp
