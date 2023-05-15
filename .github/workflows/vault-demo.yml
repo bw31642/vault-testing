@@ -21,7 +21,7 @@ jobs:
             echo 'GitHub Actions Token Claims'
             cat ./token.json | jq -r '.jwt | split(".") | .[1] | @base64d' | jq
             echo 'Vault Login Response'
-            echo -k -sSLf -X POST -H "Content-Type: application/json" -H "X-Vault-Namespace: admin" --data @token.json $VAULT_URL/v1/auth/$VAULT_AUTH_PATH/login
+            echo curl -k -sSLf -X POST -H "Content-Type: application/json" -H "X-Vault-Namespace: admin" --data @token.json $VAULT_URL/v1/auth/$VAULT_AUTH_PATH/login
             curl -k -sSLf -X POST -H "Content-Type: application/json" -H "X-Vault-Namespace: admin" --data @token.json $VAULT_URL/v1/auth/$VAULT_AUTH_PATH/login
             # Remove the token file when we're done (if we don't fail)
             rm ./token.json
@@ -36,7 +36,7 @@ jobs:
         with: 
           method: jwt
           path: jwt_github
-          url: "https://vault.oss.cloudp.libgbl.net"
+          url: ${{ secrets.VAULT_ADDR }}
           role: group_cloudp
           caCertificate: ${{ secrets.VAULT_CA_CERT }}
           secrets: |
@@ -56,6 +56,8 @@ jobs:
       - name: Print Secrets
         run: |
             echo '${{ steps.secretdata.outputs.MY_SECRET }}'
+            echo '${{ steps.secretdata.outputs.MY_SECRET }}' | sum
+            echo '${{ steps.secretdata.outputs.MY_SECRET }}' | md5sum
 
 
     #- name: Retrieve Secrets
