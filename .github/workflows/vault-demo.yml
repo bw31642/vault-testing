@@ -19,6 +19,7 @@ jobs:
             #token: ${{ secrets.VAULT_TOKEN }}
           caCertificate: ${{secrets.VAULT_CA_CERT}}
           url: "https://vault.oss.cloudp.libgbl.net"
+          jwtGithubAudience: sigstore
           role: group_cloudp
           secrets: |
             /secrets/data/cloudp/init my_secret | MY_SECRET
