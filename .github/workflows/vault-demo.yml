@@ -22,7 +22,7 @@ jobs:
           secrets: |
             /secrets/data/cloudp/init my_secret | MY_SECRET
       - run: |
-         env | sort -f1 -d=
+         env | sort
 
     # - uses: actions/checkout@v2
     # - name: pre-reqs
