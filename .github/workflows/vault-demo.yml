@@ -33,6 +33,7 @@ jobs:
           VAULT_AUTH_PATH: github
           VAULT_ROLE: "group_cloudp"
 
+
     #- name: Retrieve Secrets
     #  id: secretdata
     #  uses: hashicorp/vault-action@v2.4.0
